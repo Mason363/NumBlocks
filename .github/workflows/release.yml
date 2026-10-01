@@ -1,0 +1,29 @@
+name: Release
+
+# NumBlocks.nwa is built and tested by NumPlay's CI. When NumPlay releases a version, its "Mirror games"
+# workflow puts the same tag on this repository, and this copies the file of that release into a
+# release here. Nothing in this repository is edited by hand: it mirrors NumPlay.
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tag="$GITHUB_REF_NAME"
+          if gh release view "$tag" > /dev/null 2>&1; then
+            echo "$tag is already released"
+            exit 0
+          fi
+          gh release download "$tag" --repo Mason363/NumPlay --pattern "NumBlocks.nwa" --dir "$RUNNER_TEMP"
+          gh release create "$tag" "$RUNNER_TEMP/NumBlocks.nwa" --verify-tag --title "NumBlocks $tag" --notes \
+            "NumBlocks.nwa from [NumPlay $tag](https://github.com/Mason363/NumPlay/releases/tag/$tag): the same file, built and tested with every game there. How to install it: [the install guide](https://github.com/Mason363/NumPlay#how-to-install)."
