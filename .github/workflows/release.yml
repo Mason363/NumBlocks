@@ -18,13 +18,12 @@ jobs:
       - name: Release
         env:
           GH_TOKEN: ${{ github.token }}
-        # no checkout in this job: every gh command names the repository
         run: |
           tag="$GITHUB_REF_NAME"
-          if gh release view "$tag" --repo "$GITHUB_REPOSITORY" > /dev/null 2>&1; then
+          if gh release view "$tag" > /dev/null 2>&1; then
             echo "$tag is already released"
             exit 0
           fi
           gh release download "$tag" --repo Mason363/NumPlay --pattern "NumBlocks.nwa" --dir "$RUNNER_TEMP"
-          gh release create "$tag" "$RUNNER_TEMP/NumBlocks.nwa" --repo "$GITHUB_REPOSITORY" --verify-tag --title "NumBlocks $tag" --notes \
+          gh release create "$tag" "$RUNNER_TEMP/NumBlocks.nwa" --verify-tag --title "NumBlocks $tag" --notes \
             "NumBlocks.nwa from [NumPlay $tag](https://github.com/Mason363/NumPlay/releases/tag/$tag): the same file, built and tested with every game there. How to install it: [the install guide](https://github.com/Mason363/NumPlay#how-to-install)."

@@ -50,3 +50,7 @@ Inspired by Minecraft, but not affiliated with Mojang or Microsoft. Go play the 
 Also try [Numcraft](https://github.com/yannis300307/NumcraftRust) by yannis300307, the first Minecraft-like game for the NumWorks.
 
 Made by Mason Chen as part of NumPlay.
+
+## License
+
+The game's code is licensed under the GNU General Public License v3.0: see the `LICENSE` file at the root of the repository. The textures, font and screens come from Minecraft 1.8.8 and belong to Mojang: they are not covered (see Credits).
