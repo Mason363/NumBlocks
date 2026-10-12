@@ -1,6 +1,6 @@
 # NumBlocks
 
-> This repository mirrors the `games/numblocks` folder of NumPlay and is updated automatically: changes go to NumPlay, and edits made here are overwritten. Its releases are NumPlay's: the same `NumBlocks.nwa`, from the NumPlay release of that version.
+> **This repository is archived.** NumBlocks now lives in [NumPlay](https://github.com/Mason363/NumPlay), in [`games/numblocks`](https://github.com/Mason363/NumPlay/tree/main/games/numblocks): that's where it gets its updates, and every [NumPlay release](https://github.com/Mason363/NumPlay/releases/latest) has `NumBlocks.nwa`.
 
 Mine, craft and survive on your NumWorks calculator, in a world like Minecraft 1.8.
 
@@ -41,7 +41,7 @@ You can change these keys in Options, then Controls. In the inventory, the arrow
 
 ## Get it
 
-It comes inside [NumPlay](https://github.com/Mason363/NumPlay), or on its own as `NumBlocks.nwa` from the [latest release](https://github.com/Mason363/NumBlocks/releases/latest).
+It comes inside [NumPlay](https://github.com/Mason363/NumPlay), or on its own as `NumBlocks.nwa` from the [latest NumPlay release](https://github.com/Mason363/NumPlay/releases/latest).
 
 ## Credits
 
